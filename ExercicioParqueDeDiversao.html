@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function VerificarPesoAltura(){
+            var Altura=document.getElementById("Altura").value;
+            var Peso=document.getElementById("Peso").value;
+            var x;
+            if((Altura>=150)&&(Peso>=60))
+            x=("Pode entrar meu mano")
+            else
+            x=("Opa,vai em outro brinquedo campeão")
+            document.getElementById("Verificar").innerHTML=x;
+        }
+    </script>
+</head>
+<body>
+  <h1>Javascript exercicio-3</h1>
+  <p>Qual a sua altura</p>
+  <input type="text" id="Altura" >
+  <p>Qual o seu peso</p>
+  <input type="text" id="Peso">  
+  <br>
+  <button onclick="VerificarPesoAltura()">Verificar se pode andar na montanha russa</button>
+  <p id="Verificar"></p>
+</body>
+</html>

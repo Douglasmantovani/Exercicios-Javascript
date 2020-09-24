@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function VerficarSeEstaFrio(){
+            var Clima=confirm("Está frio?")
+            var UsandoBlusa=confirm("Tá com blusa?")
+            var x;
+            if(Clima==true&&UsandoBlusa==true){
+            x=("Exelente,tem que se manter aquecido")
+            }else if(Clima==false&&UsandoBlusa==true){
+                x=("Ta com calor não meu parceirinho?")
+            }else if(Clima==true&&UsandoBlusa==false)
+            x=("Vai botar um casaco menino(a)")
+            else if(Clima==false&&UsandoBlusa==false)
+            x=("Hoje ta tranks")
+        document.getElementById("Verificar").innerHTML=x;
+        }
+    </script>
+</head>
+<body>
+    <h1>Javascript exercicio-5</h1>
+    <button onclick="VerficarSeEstaFrio()">Verificar se esta frio</button>
+    <p id="Verificar"></p>
+</body>
+</html>

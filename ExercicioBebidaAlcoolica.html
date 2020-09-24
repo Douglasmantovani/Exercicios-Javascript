@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+</head>
+
+<body>
+    <h1>Javascript exercicio-2</h1>
+    <h2>Qual a sua idade meu jovem?</h2>
+    <input type="text" id="Idade">
+    <button onclick="VerificarIdade()">Verificar idade</button>
+    <p id="verificar"></p>
+
+    <script>
+        function VerificarIdade() {
+        var idade=document.getElementById("Idade").value;
+            if (idade >= 18) {
+                var x;
+                x = ("Pode beber tranquilo")
+            } else {
+                x = ("Opa,não tenha pressa de envelhecer")
+            }
+            document.getElementById("verificar").innerHTML=x;
+        }
+    </script>
+</body>
+
+</html>

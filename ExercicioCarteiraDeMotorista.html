@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function VerificarPontosNaCarteira() {
+            var ponto = document.getElementById("Pontos").value;
+            var x;
+            if (ponto >= 20) {
+                x = ("Seguinte amigão,seu carro vai dormir no pátio hoje");
+            } else {
+                x = ("Tudo certo,dirija com cuidado");
+            }
+            document.getElementById("Verificar").innerHTML = x;
+        }
+    </script>
+</head>
+
+<body>
+    <h1>Javascript exercicio-5</h1>
+    <h2>Quantos pontos na carteira voce ja levou?</h2>
+    <input type="text" id="Pontos">
+    <button onclick="VerificarPontosNaCarteira()">Verificar se pode continuar dirigindo</button>
+    <p id="Verificar"></p>
+
+</body>
+
+</html>

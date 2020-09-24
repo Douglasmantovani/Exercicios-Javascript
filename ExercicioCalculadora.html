@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function Calcular(){
+            var num1=document.getElementById("Numero1").value;
+            var num2=document.getElementById("Numero2").value;
+            var Operacao=document.getElementById("Operacao").value;
+            var x;
+
+            switch(Operacao){
+                case "+":
+                alert("A soma é: " + (num1*1+num2*1))
+                break;
+
+                case "-":
+                alert("A subtração é: " + num1-num2);
+                break;
+
+                case "*":
+                alert("A multiplicação é: " + num1*num2)
+                break;
+
+                case "/":
+                alert("A divisao é: " + num1/num2)
+                break;
+
+                default:
+                alert("Algoritimo não reconhecido");
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>Javascript exercicio-7</h1>
+    <h3>Digite um numero</h3>
+    <input type="text" id="Numero1">
+    <h3>Digite outro numero</h3>
+    <input type="text" id="Numero2">
+    <h3>Digite a operação</h3>
+    <input type="text" id="Operacao">
+    <button onclick="Calcular()">Calcular</button>
+</body>
+</html>
