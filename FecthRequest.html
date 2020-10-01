@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Buscando CEP com Fetch API</title>
+    <meta content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+        name="viewport">
+</head>
+
+<body>
+    <main class="container">
+        <h1 class="title">Buscando CEP com Fetch API</h1>
+        <form class="form" onsubmit="buscarCep(event, this);">
+            <div class="row">
+                <div class="form___group">
+                    <input autofocus autocomplete="off" class="form___data" id="cep" maxlength="8" name="cep"
+                        pattern="([\d]{8})" placeholder="Digite o CEP aqui" required type="text">
+                    <span class="form___requirement">* O campo deve ser informado com apenas números.</span>
+                </div>
+            </div>
+            <div class="row has-alignCenter">
+                <button class="form__button" type="submit">Buscar CEP</button>
+            </div>
+        </form>
+    </main>
+    <script>
+
+function mostrarResposta(cep) {
+            const mensagem = `
+        CEP: ${cep.cep},
+        Logradouro: ${cep.logradouro},
+        Complemento: ${cep.complemento},
+        Bairro: ${cep.bairro},
+        Cidade ${cep.localidade},
+        Estado: ${cep.uf}
+    `;
+            alert(mensagem);
+        }
+
+        function buscarCep(event, form) {
+            event.preventDefault();
+            const inputCep = form.cep;
+            if (inputCep) {
+                const cep = inputCep.value;
+                if (cep.length === 8) {
+                    const URL = `https://viacep.com.br/ws/${cep}/json/`;
+                    fetch(URL)
+                        .then(resposta => resposta.json())
+                        .then(data => mostrarResposta(data))
+                        .catch(erro => console.error(erro));
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>
