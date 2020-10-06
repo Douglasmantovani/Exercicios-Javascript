@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desafio JS - PetShop</title>
+</head>
+<body>
+    <!--CAMPOS
+    NomePet;
+    NomeDono;
+    Raça;
+    Idade;
+    Cor;
+    Porte;
+    Peso(massa);
+    TipoPet(bool(cachorro/gato))
+    Sexo;
+    Descricao(informações adicionais)-->
+
+    <header>
+        <h1>
+            Desafio JS - PetShop
+        </h1>
+    </header>
+
+    <main>
+        <form id="Formulario">
+        <label>Nome do pet</label>
+        <input type="text" name="nomePet" id="NomePet">
+
+        <br/>
+        <br/>
+
+        <label>Nome do dono(a)</label>
+        <input type="text" name="nomeDono" id="NomeDono">
+
+        <br/>
+        <br/>
+
+        <label>Raça</label>
+        <input type="text" name="raca" id="Raca">
+
+        <br/>
+        <br/>
+
+        <label>Idade</label>
+        <input type="text" name="idade" id="Idade">
+
+        <br/>
+        <br/>
+
+        <label>Cor</label>
+        <input type="text" name="cor" id="Cor">
+
+        <br/>
+        <br/>
+
+        <label>Porte</label>
+        <input type="text" name="porte" id="Porte">
+
+        <br/>
+        <br/>
+
+        <label>Massa(peso)</label>
+        <input type="text" name="massa" id="Massa">
+
+        <br/>
+        <br/>
+
+        <label>Tipo do pet</label>
+
+        <br/>
+
+        <input type="radio" name="tipoPet" id="Tipo1" value="cachorro">
+        <label for="Tipo1">Cachorro</label>
+
+        <input type="radio" name="tipoPet" id="Tipo2" value="gato">
+        <label for="Tipo2">Gato</label>
+
+        <br/>
+        <br/>
+
+        <label>Sexo</label>
+
+        <br/>
+
+        <input type="radio" name="sexo" id="Sexo1" value="femea">
+        <label for="Sexo1">Fêmea</label>
+
+        <input type="radio" name="sexo" id="Sexo2" value="macho">
+        <label for="Sexo2">Macho</label>
+
+        <br/>
+        <br/>
+
+        <label>Descrição</label>
+
+        <br/>
+
+        <textarea placeholder="Escreva aqui a descrição" id="Descricao"></textarea>
+
+        <br/>
+        <br/>
+
+    </form>
+    <input type="submit" onclick="Save()" value="Salvar">
+
+    <p id="p"></p>
+        <br/>
+        <br/>
+
+    </main>
+
+    
+    <script>
+   
+var listProdut = [];
+
+var listObjects = [];
+
+function Save()
+{ 
+    
+var pet = 
+{
+    NomePet: '',
+    NomeDono: '',
+    Raca: '',
+    Idade: '',
+    Cor: '',
+    Porte: '',
+    Massa: '',
+    TipoPet: '',
+    Sexo: '',
+    Descricao: ''
+};
+
+    let stringModel = `nomepet:${document.getElementById('NomePet').value};
+    nomedono:${document.getElementById('NomeDono').value};
+    raca:${document.getElementById('Raca').value};
+    idade:${document.getElementById('Idade').value};
+    cor:${document.getElementById('Cor').value};
+    portes:${document.getElementById('Porte').value};
+    tipoPet:${document.querySelector('input[name="tipoPet"]:checked').value};
+    sexo:${document.querySelector('input[name="sexo"]:checked').value};
+    descricao:${document.getElementById('Descricao').value};`;
+
+    //Pegando os IDs e colocando dentro do objeto pet
+    pet.NomePet = document.getElementById("NomePet").value;
+    pet.NomeDono = document.getElementById("NomeDono").value;
+    pet.Raca = document.getElementById("Raca").value;
+    pet.Idade = document.getElementById("Idade").value;
+    pet.Cor = document.getElementById("Cor").value;
+    pet.Porte = document.getElementById("Porte").value;
+    pet.Massa = document.getElementById("Massa").value;
+    pet.TipoPet = document.querySelector('input[name="tipoPet"]:checked').value;
+    pet.Sexo = document.querySelector('input[name="sexo"]:checked').value;
+    pet.Descricao = document.getElementById("Descricao").value;
+
+    listProdut.push(stringModel);
+
+    listObjects.push(pet);
+    alert("Pet cadastrado")
+}
+
+function ListaObj(){
+    for(var i =0;i<listObjects.length;i++){
+        var x=Listar(listObjects[i])
+        document.getElementById("p").innerHTML=x;
+    }
+
+}
+function Listar(pet)
+{
+    var resultado;
+
+    for (var i in pet){
+   
+    if (pet.hasOwnProperty(i)) {
+        resultado += "." + i + " = " + pet[i] + "\n";
+    }
+    }
+    return resultado;
+}
+    </script>
+</body>
+</html>
